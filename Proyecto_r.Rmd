@@ -21,3 +21,14 @@ yearly %>%
   mutate(proportion_deaths = (deaths/births)*100)
 
 ```
+-- --------------------------------
+<!-- 3. MUERTES EN LAS CLINICAS -->
+-- --------------------------------
+```{r}
+yearly <- yearly %>%
+  mutate(proportion_deaths = (deaths/births)*100)
+
+ggplot(yearly, aes(x=year, y=proportion_deaths, color=clinic)) +
+  geom_line()
+
+```

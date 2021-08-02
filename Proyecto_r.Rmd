@@ -32,3 +32,28 @@ ggplot(yearly, aes(x=year, y=proportion_deaths, color=clinic)) +
   geom_line()
 
 ```
+
+-- ----------------------------------------
+<!-- 4. COMIENZA EL LAVADO DE LAS MANOS -->
+-- ----------------------------------------
+```{r}
+monthly <- read_csv("deaths_clinic_1.csv")
+
+monthly <- monthly %>%
+    mutate(proportion_deaths = (deaths/births)*100)
+
+head(monthly, 5)
+
+```
+
+-- ----------------------------------------
+<!-- 5. COMIENZA EL LAVADO DE LAS MANOS -->
+-- ----------------------------------------
+```{r}
+ggplot(monthly, aes(x=date, y=proportion_deaths)) +
+  labs(x="Fecha", y="Proporción (Fallecido/Nacidos)", title="Grafica de Proporcion de Fallecidos por Fecha", subtitle="Clinica #1") +
+  geom_line(colour = 'red')
+
+```
+
+

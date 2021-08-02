@@ -56,4 +56,19 @@ ggplot(monthly, aes(x=date, y=proportion_deaths)) +
 
 ```
 
+-- -------------------------------------------
+<!-- 6. LOS RESULTADOS DEL LAVADO DE MANOS -->
+-- -------------------------------------------
+```{r}
+monthly <- monthly %>%
+  mutate (handwashing_started = ifelse (as.numeric(format(date,'%Y')) >= 1847, TRUE, FALSE))
+
+ggplot(monthly, aes(x=date, y=proportion_deaths, color = handwashing_started)) +
+  labs(x="Fecha", y="Proporción (Fallecido/Nacidos)", title="Grafica de Proporcion de Fallecidos por Fecha", subtitle="Clinica #1") +
+  geom_line() +
+  #para ver mas definidos los puntos de interseccion x,y
+  geom_point()
+
+```
+
 

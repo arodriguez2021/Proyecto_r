@@ -1,0 +1,23 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+-- -----------------------------
+<!-- 1. CONOCIENDO LOS DATOS -->
+-- -----------------------------
+```{r}
+library(tidyverse)
+
+yearly <- read_csv("deaths_handwashing.csv")
+
+yearly
+```
+-- ---------------------------------------
+<!-- 2. EL ALARMANTE NUMERO DE MUERTES -->
+-- ---------------------------------------
+```{r}
+yearly %>%
+  mutate(proportion_deaths = (deaths/births)*100)
+
+```

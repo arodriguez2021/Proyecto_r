@@ -80,6 +80,6 @@ month_summary <- monthly %>%
   group_by(handwashing_started) %>%
   summarise(mean_propotion_deaths = mean(proportion_deaths))
 
-month_summary
+View(month_summary)
 
 ```
